@@ -69,7 +69,7 @@ class Register extends StatelessWidget {
 
                     Text('Username', style: TextStyle(fontSize: 14, color: Colors.grey)),
                      CustomInputField(hint: 'userame',
-                    controller: controller.nameController,
+                    controller: controller.userNameController,
                     keyboardType: TextInputType.name,
                     validator: Validators.validateNotEmpty,),
                     SizedBox(height: 10),
@@ -87,25 +87,34 @@ class Register extends StatelessWidget {
                     controller: controller.passwordController,
                     validator:  Validators.validatePassword,
                     onTap: controller.togglePasswordVisibility,
+                    obscureText: controller.obscurePassword.value,
                     surffixIcon: Icon(
                       controller.obscurePassword.value ?Icons.visibility : Icons.visibility_off,
                     )
                     ),
                   ),
                     SizedBox(height: 30),
-                  CustomButton(
+//                   CustomButton(
+//   onPressed: () {
+//   if (controller.formKey.currentState!.validate()) {
+//     Get.toNamed('/home');
+//   } else {
+//     Get.snackbar(
+//       'Validation Failed',
+//       'Please fill all fields correctly.',
+//       backgroundColor: Colors.redAccent,
+//       colorText: Colors.white,
+//     );
+//   }
+// },
+//   text: 'Create Account',
+//   color: AppColors.primary,
+// ),
+CustomButton(
   onPressed: () {
-  if (controller.formKey.currentState!.validate()) {
-    Get.toNamed('/home');
-  } else {
-    Get.snackbar(
-      'Validation Failed',
-      'Please fill all fields correctly.',
-      backgroundColor: Colors.redAccent,
-      colorText: Colors.white,
-    );
-  }
-},
+
+    controller.register();
+  },
   text: 'Create Account',
   color: AppColors.primary,
 ),

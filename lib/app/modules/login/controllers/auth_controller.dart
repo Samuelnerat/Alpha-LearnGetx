@@ -12,6 +12,7 @@ class AuthController extends GetxController {
   final confirmPasswordController = TextEditingController();
   final phoneController = TextEditingController();
   final nameController = TextEditingController();
+  final userNameController = TextEditingController();
 
 
 
@@ -32,8 +33,20 @@ class AuthController extends GetxController {
   //   }
   // }
 
-  void register() {
+  // void register() {
+  //   if (formKey.currentState?.validate() ?? false) {
+  //     isLoading.value = true;
+  //     Future.delayed(Duration(seconds: 2), () {
+  //       isLoading.value = false;
+  //       Get.snackbar('Success', 'Registration successful');
+  //       Get.offAll(() => HomeScreen());
+  //     });
+  //   }
+  // }
+
+    void register() {
     if (formKey.currentState?.validate() ?? false) {
+       userEmail.value = emailController.text.trim();
       isLoading.value = true;
       Future.delayed(Duration(seconds: 2), () {
         isLoading.value = false;

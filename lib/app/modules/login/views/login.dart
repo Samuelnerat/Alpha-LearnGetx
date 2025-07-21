@@ -74,7 +74,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 6),
                     CustomInputField(hint: 'Username',
-                    controller: controller.nameController,
+                    controller: controller.userNameController,
                     keyboardType: TextInputType.name,
                     validator: Validators.validateNotEmpty,),
                     SizedBox(height: 20),
@@ -104,6 +104,7 @@ SizedBox(height: 20),
                     controller: controller.passwordController,
                     validator:  Validators.validatePassword,
                     onTap: controller.togglePasswordVisibility,
+                    obscureText: controller.obscurePassword.value,
                     surffixIcon: Icon(
                       controller.obscurePassword.value ?Icons.visibility : Icons.visibility_off,
                     )
